@@ -5,7 +5,11 @@ const isTokenValid = (email, token, tokenCB) => {
         if(err || userDetail === null || typeof userDetail === 'undefined') {
             tokenCB('Please login before accessing the API');
         } else {
-            tokenCB(undefined, userDetail);
+            if(token === userDetail.token) {
+                tokenCB(undefined, userDetail);
+            } else {
+                tokenCB('Please login before accessing the API');
+            }
         }
     })
 }
