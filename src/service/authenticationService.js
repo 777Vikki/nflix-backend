@@ -14,6 +14,27 @@ const isTokenValid = (email, token, tokenCB) => {
     })
 }
 
+const resetPassword = (userDetail, oldPassword, newPassword, passwordCB) => {
+    if(userDetail.password === oldPassword) {
+        const filter = {
+            email: userDetail.email
+        };
+        const update = {
+            password: newPassword
+        }
+        userAccessor.updateUserDetail(filter, update, function(err, result) {
+            if(err || result === null || typeof result === 'undefined') {
+                passwordCB('Please try again letter.');
+            } else {
+                passwordCB(undefined, 'Password successfully updated');
+            }
+        });
+    } else{
+        passwordCB('Passwords are mismatched');
+    }
+}
+
 module.exports = {
-    isTokenValid
+    isTokenValid,
+    resetPassword
 }

@@ -5,3 +5,6 @@ A Node.js RESTful API for nflix
 
 # get show list api:
 /shows/get-show/:type/:index
+
+# reset password api:
+/auth/reset-password

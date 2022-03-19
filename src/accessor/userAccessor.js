@@ -19,7 +19,12 @@ const SaveUserDetail = (userdetail,cbAccessor)=>{
    
 }
 
+const updateUserDetail = (filter, update, updateCB) => {
+    userModel.findOneAndUpdate(filter, update, updateCB);
+}
+
 module.exports = {
     SaveUserDetail,
-    getUserByEmail
+    getUserByEmail,
+    updateUserDetail
 }
