@@ -1,13 +1,20 @@
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
+const bodyparser = require('body-parser');
+
+const userroute = require('./src/routes/userRoute');
+const { json } = require("body-parser");
 
 // export MONGO_PASSWORD='WRITE_PASSWORD'
-const username = process.env.MONGO_USERNAME;
-const password = process.env.MONGO_PASSWORD;
+const username = process.env.MONGO_USERNAME || 'saurabh10';
+const password = process.env.MONGO_PASSWORD || 'MONGODB';
 const database = "sample_mflix";
 
-const connectionLink = `mongodb+srv://${username}:${password}@shopping-card.yjiw6.mongodb.net/${database}?retryWrites=true&w=majority`;
+app.use(bodyparser.json());
+
+const connectionLink = `mongodb+srv://${username}:${password}@cluster0.qvteq.mongodb.net/${database}?retryWrites=true&w=majority`;
+// const connectionLink = `mongodb+srv://${username}:${password}@shopping-card.yjiw6.mongodb.net/${database}?retryWrites=true&w=majority`;
 mongoose.connect(connectionLink,{
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -26,6 +33,8 @@ app.use('/product', function(req, res, next) {
     // res.send('Working');
     res.send("properly working");
 });
+
+app.use('/users',userroute);
 
 
 module.exports = app;
