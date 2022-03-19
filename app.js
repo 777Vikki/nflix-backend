@@ -13,8 +13,8 @@ const database = "sample_mflix";
 
 app.use(bodyparser.json());
 
-const connectionLink = `mongodb+srv://${username}:${password}@cluster0.qvteq.mongodb.net/${database}?retryWrites=true&w=majority`;
-// const connectionLink = `mongodb+srv://${username}:${password}@shopping-card.yjiw6.mongodb.net/${database}?retryWrites=true&w=majority`;
+// const connectionLink = `mongodb+srv://${username}:${password}@cluster0.qvteq.mongodb.net/${database}?retryWrites=true&w=majority`;
+const connectionLink = `mongodb+srv://${username}:${password}@shopping-card.yjiw6.mongodb.net/${database}?retryWrites=true&w=majority`;
 mongoose.connect(connectionLink,{
         useNewUrlParser: true,
         useUnifiedTopology: true,
