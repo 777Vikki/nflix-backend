@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 
 const userroute = require('./src/routes/userRoute');
-const { json } = require("body-parser");
+const showRoute = require('./src/routes/showListRoute');
 
 // export MONGO_PASSWORD='WRITE_PASSWORD'
 const username = process.env.MONGO_USERNAME || 'saurabh10';
@@ -35,6 +35,7 @@ app.use('/product', function(req, res, next) {
 });
 
 app.use('/users',userroute);
+app.use('/shows', showRoute)
 
 
 module.exports = app;
