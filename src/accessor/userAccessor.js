@@ -1,5 +1,9 @@
 const userModel = require('../db/models/userModels').userModels;
 
+const getUserByEmail = (email, userCB) => {
+    userModel.findOne({email: email}).exec(userCB);
+}
+
 const SaveUserDetail = (userdetail,cbAccessor)=>{
 
     const userModelSave = new userModel(userdetail)
@@ -16,5 +20,6 @@ const SaveUserDetail = (userdetail,cbAccessor)=>{
 }
 
 module.exports = {
-    SaveUserDetail
+    SaveUserDetail,
+    getUserByEmail
 }
