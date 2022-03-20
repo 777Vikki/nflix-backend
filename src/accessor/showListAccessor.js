@@ -11,6 +11,13 @@ const getShowList = (type, skipShows, count, showCB) => {
     }
 }
 
+const getSearchShowList = (searchDetail, type, skipShows, count, showListCB) => {
+    if(type === showType.movie) {
+        movieListModel.find({title: 'Show People'}).limit(100).exec(showListCB);
+    }
+}
+
 module.exports = {
-    getShowList
+    getShowList,
+    getSearchShowList
 };

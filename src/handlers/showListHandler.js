@@ -21,6 +21,18 @@ const getShowList = (req, res) => {
     });
 }
 
+const searchShow = (req, res) => {
+    const searchItem = req.query.item;
+    const type = req.params.type;
+    const index = req.params.index;
+    const count = 100;
+    showListService.searchShow(searchItem, type, index, count, function(err, showList) {
+
+    });
+    res.send('working');
+}
+
 module.exports = {
-    getShowList
+    getShowList,
+    searchShow
 }

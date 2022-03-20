@@ -14,7 +14,7 @@ const checkIfAuthenticated = (req, res, next) =>  {
                         if(err) {
                             res.status(401).send('Please login before accessing the API');
                         } else {
-                            req.data = user;
+                            req.userData = user;
                             next();
                         }
                     })

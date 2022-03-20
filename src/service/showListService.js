@@ -21,6 +21,18 @@ const getShowList = (type, index, count, showCB) => {
     });
 }
 
+const searchShow = (search, type, index, count, showListCB) => {
+    const skipShows = (index - 1) * count;
+    showListAccessor.getSearchShowList(search, type, skipShows, count, function(err, showList) {
+        console.log(err)
+        console.log(showList);
+        if(showList && showList.length > 0) {
+            console.log(showList.length);
+        }
+    })
+}
+
 module.exports = {
-    getShowList
+    getShowList,
+    searchShow
 };

@@ -1,7 +1,7 @@
 const authenticationService = require('../service/authenticationService');
 
 const resetPassword = (req, res) => {
-    const user = req.data;
+    const user = req.userData;
     const oldPassword = req.body.oldPassword;
     const newPassword = req.body.newPassword;
     authenticationService.resetPassword(user, oldPassword, newPassword, function(err, passRes) {
@@ -22,7 +22,7 @@ const resetPassword = (req, res) => {
 }
 
 const logout = (req, res) => {
-    const email = req.data.email;
+    const email = req.userData.email;
     authenticationService.logout(email, function(err, logoutRes) {
         if(err) {
             const response = {
