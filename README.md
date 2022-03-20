@@ -11,3 +11,9 @@ A Node.js RESTful API for nflix
 
 # logout api
 /auth/logout
+
+#login api
+/users/login
+
+#sign-in api
+/users/Sign-in
