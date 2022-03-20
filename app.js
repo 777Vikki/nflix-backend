@@ -6,6 +6,7 @@ const bodyparser = require('body-parser');
 const userroute = require('./src/routes/userRoute');
 const showRoute = require('./src/routes/showListRoute');
 const authenticationRoute = require('./src/routes/authenticationRoute');
+
 // export MONGO_PASSWORD='WRITE_PASSWORD'
 const username = process.env.MONGO_USERNAME || 'saurabh10';
 const password = process.env.MONGO_PASSWORD || 'MONGODB';
@@ -36,7 +37,8 @@ app.use('/product', function(req, res, next) {
 
 app.use('/users',userroute);
 app.use('/shows', showRoute);
-app.use('/auth', authenticationRoute)
+app.use('/auth', authenticationRoute);
+
 
 
 module.exports = app;

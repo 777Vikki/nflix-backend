@@ -17,6 +17,20 @@ const SaveUserDetail = (req,res)=>{
     })
 }
 
+const Login = (req,res)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+
+    userService.Login(email,password, function(errLOGIN,token){
+       if(errLOGIN){
+           res.status(401).send(errLOGIN);
+       }else{
+           res.status(200).send(token)
+       }
+    })
+ }
+
 module.exports = {
-    SaveUserDetail
+    SaveUserDetail,
+    Login
 }

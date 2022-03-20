@@ -19,7 +19,6 @@ const resetPassword = (req, res) => {
             res.status(200).send(response);
         }
     });
-
 }
 
 module.exports = {
