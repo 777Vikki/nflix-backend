@@ -8,3 +8,6 @@ A Node.js RESTful API for nflix
 
 # reset password api:
 /auth/reset-password
+
+# logout api
+/auth/logout
